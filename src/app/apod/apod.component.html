@@ -1,8 +1,6 @@
 <main *ngIf="apod">
 
-  <button *ngIf="date" [routerLink]="['/apod', this.date]">Random</button>
-
-  <h1>{{ apod.title }}</h1>
+   <h1>{{ apod.title }}</h1>
 
   <!-- 
     Square brackets around an attribute creates a data binding. 
@@ -28,4 +26,6 @@
 
   <p>{{ apod.explanation }}</p>
 
+  <button *ngIf="date" [routerLink]="['/apod', this.date]">Random</button>
+  
 </main>
