@@ -1,5 +1,7 @@
 <main *ngIf="apod">
 
+  <button *ngIf="date" [routerLink]="['/apod', this.date]">Random</button>
+  
   <h1>{{ apod.title }}</h1>
 
   <!-- 
