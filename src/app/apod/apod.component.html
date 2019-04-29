@@ -1,7 +1,7 @@
 <main *ngIf="apod">
 
   <button *ngIf="date" [routerLink]="['/apod', this.date]">Random</button>
-  
+
   <h1>{{ apod.title }}</h1>
 
   <!-- 
@@ -13,16 +13,18 @@
     <img *ngIf="apod.media_type==='image'" [src]="apod.url" [alt]="apod.title">
 
     <!-- Display and embed the YouTube video if the media_type is set to video -->
-    <iframe *ngIf="apod.media_type==='video'" [src]="apod.url | safe: 'resourceUrl'" frameborder="0" allowfullscreen></iframe>
+    <div id="video" *ngIf="apod.media_type==='video'">
+      <iframe *ngIf="apod.media_type==='video'" [src]="apod.url | safe: 'resourceUrl'" frameborder="0" allowfullscreen></iframe>
+    </div>
     
-  <div>
+    <div>
     <!-- 
       Only select images have a copyright, if apod.copyright is 
       empty we will not attempt to show it
     -->
-    <span *ngIf="apod.copyright">&copy; {{ apod.copyright }} </span>
-    {{ apod.date }}
-  </div>
+      <span *ngIf="apod.copyright" class="copy">&copy; {{ apod.copyright }} </span>
+      {{ apod.date }}
+    </div>
 
   <p>{{ apod.explanation }}</p>
 
